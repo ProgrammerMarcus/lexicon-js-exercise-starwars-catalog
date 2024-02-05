@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    font-size: 1em;
+}
+
+.hero {
+    display: grid;
+    height: 196px;
+    background-color: red;
+    background-image: url(/assets/hero.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.split {
+    display: grid;
+    grid-auto-flow: column;
+    place-content: center;
+    section {
+        margin: 32px;
+        height: calc(100svh - 300px);
+        min-width: 600px;
+        h2 {
+            text-align: center;
+        }
+    }
+}
+
+.dual {
+    display: grid;
+    grid-auto-flow: row;
+}
+
+.characters {
+    border-radius: 25px;
+    position: relative;
+    background-color: aquamarine;
+    h2 {
+        display: grid;
+        place-content: center;
+        color: yellow;
+        background-color: gray;
+        height: 2em;
+        margin: 0;
+        font-size: 2rem;
+        border-radius: 25px 25px 0 0;
+    }
+    .list {
+        display: grid;
+        grid-auto-flow: row;
+        span {
+            font-size: 1.5em;
+            padding: 9px 0 9px 18px;
+            background-color: darkkhaki;
+        }
+        span:nth-child(2n) {
+            background-color: lightsalmon;
+        }
+    }
+    .controls {
+        position: absolute;
+        bottom: 0;
+        height: 4em;
+        width: 100%;
+        background-color: red;
+    }
+}
+
+.details {
+    background-color: beige;
+}
+
+.character {
+    background-color: blueviolet;
+}
+
+.planet {
+    background-color: brown;
+}
