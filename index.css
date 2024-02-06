@@ -1,29 +1,122 @@
 body {
     margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     padding: 0;
     font-size: 1em;
+    background-image: url(/assets/bg.jpg);
 }
 
 .hero {
     display: grid;
-    height: 196px;
-    background-color: red;
+    height: 15rem;
     background-image: url(/assets/hero.jpg);
     background-size: cover;
     background-position: center;
+    place-items: center;
+    h1 {
+        font-size: 4em;
+        margin-bottom: 1.5em;
+        color: white;
+    }
 }
 
 .split {
-    display: grid;
-    grid-auto-flow: column;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
     place-content: center;
-    section {
+    top: -5em;
+    > section {
         margin: 32px;
-        height: calc(100svh - 300px);
-        min-width: 600px;
+        width: 600px;
+        max-width: 100%;
         h2 {
             text-align: center;
+        }
+    }
+}
+
+.loader {
+    position: absolute;
+    display: none;
+    top: calc(53%);
+    left: calc(50% - 26px);
+    width: 52px;
+    aspect-ratio: 1;
+    border: 5px dashed black;
+    animation: 1s infinite linear;
+    animation-name: rotate;
+    border-radius: 50%;
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.characters {
+    border-radius: 10px;
+    background-color: #bbb;
+    display: flex;
+    flex-direction: column;
+    h2 {
+        color: yellow;
+        background-color: #333;
+        min-height: 2em;
+        font-size: 2rem;
+        border-radius: 10px 10px 0 0;
+        width: 100%;
+        display: grid;
+        place-items: center;
+        margin: 0;
+    }
+    .list {
+        display: grid;
+        grid-auto-flow: row;
+        gap: 1px;
+        span {
+            font-size: 1.5em;
+            padding: 9px 0 9px 18px;
+            background-color: #ddd;
+            place-items: center start;
+            display: grid;
+        }
+        span:nth-child(2n) {
+            background-color: #eee;
+        }
+        span:hover {
+            background-color: #ccc;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+        .selected:nth-child(n) {
+            background-color: #aaa;
+            color: white;
+        }
+    }
+    .controls {
+        width: 100%;
+        color: white;
+        border-radius: 0 0 10px 10px;
+        display: grid;
+        place-items: end;
+        align-self: end;
+        height: 100%;
+        button {
+            outline: 0px;
+            font-size: 2rem;
+            background-color: white;
+            padding: 6px;
+            border-radius: 10px;
+            margin: 9px;
+            border: 1px solid black;
+        }
+        button:hover {
+            background-color: #eee;
+            cursor: pointer;
         }
     }
 }
@@ -31,51 +124,49 @@ body {
 .dual {
     display: grid;
     grid-auto-flow: row;
-}
-
-.characters {
-    border-radius: 25px;
-    position: relative;
-    background-color: aquamarine;
-    h2 {
+    color: black;
+    section {
+        place-items: center start;
         display: grid;
-        place-content: center;
-        color: yellow;
-        background-color: gray;
-        height: 2em;
-        margin: 0;
-        font-size: 2rem;
-        border-radius: 25px 25px 0 0;
-    }
-    .list {
-        display: grid;
-        grid-auto-flow: row;
+        padding: 9px 0 9px 18px;
+        gap: 0.2em;
         span {
-            font-size: 1.5em;
-            padding: 9px 0 9px 18px;
-            background-color: darkkhaki;
+            display: block;
+            font-size: 1.1em;
         }
-        span:nth-child(2n) {
-            background-color: lightsalmon;
-        }
-    }
-    .controls {
-        position: absolute;
-        bottom: 0;
-        height: 4em;
-        width: 100%;
-        background-color: red;
     }
 }
 
 .details {
-    background-color: beige;
+    position: relative;
+    background-color: #ddd;
+    border-radius: 10px;
+    color: yellow;
+    > h2 {
+        border-radius: 25px 25px 0 0;
+        display: grid;
+        place-content: center;
+        color: yellow;
+        background-color: #333;
+        height: 2em;
+        margin: 0;
+        font-size: 2rem;
+        border-radius: 10px 10px 0 0;
+    }
+    h3 {
+        margin: 0.4em 0;
+        font-size: 1.3em;
+    }
 }
 
 .character {
-    background-color: blueviolet;
+    background-color: #eee;
+    min-height: 7rem;
 }
 
-.planet {
-    background-color: brown;
+@media screen and (max-width: 480px) {
+    .hero h1 {
+        font-size: 3rem;
+        text-align: center;
+    }
 }
