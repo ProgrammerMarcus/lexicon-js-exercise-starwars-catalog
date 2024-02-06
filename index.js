@@ -22,16 +22,36 @@ const characterList = {
             });
         }
     },
+    getPrevious: function () {
+        console.log(counter.i)
+        if (counter.i < 7) {
+            return
+        } else {
+            counter.i = Math.max(counter.i - 12, 0)
+        }
+        for (let i = 0; i < 6; i++) {
+            counter.increment();
+            fetcher("people", counter.i).then((v) => {
+                if (this.list.children.length >= 6) {
+                    this.list.firstElementChild.remove();
+                }
+                this.list.insertAdjacentHTML(
+                    "beforeend",
+                    `<span data-character="${v.url}" data-planet="${v.homeworld}">${v.name}</span>`
+                );
+            });
+        }
+    },
 };
 characterList.list.addEventListener("click", (e) => {
-    document.querySelector(".loader").style.display = "flex";
+    document.querySelector(".details .loader").style.display = "flex";
     let selected = characterList.list.querySelector(".selected");
     if (selected) {
         selected.classList.remove("selected");
     }
     e.target.classList.add("selected");
     selectedDetails.show(e.target.dataset.character, e.target.dataset.planet).then(() => {
-        document.querySelector(".loader").style.display = "none";
+        document.querySelector(".details .loader").style.display = "none";
     });
 });
 
@@ -102,22 +122,27 @@ async function fetcher(type, number) {
         name: "ERROR",
     };
     try {
-        document.querySelectorAll("body, button, span").forEach(e => {
-            e.style.cursor = "progress"
+        document.querySelectorAll(".list span").forEach(e => {
+            e.style.visibility = "hidden"
         })
+        document.querySelector(".characters .loader").style.display = "flex"
         const response = await fetch(`https://swapi.dev/api/${type}/${number}/`);
         const data = await response.json();
         fetched = data;
     } catch (error) {
         console.error(error);
     } finally {
-        document.querySelectorAll("body, button").forEach(e => {
-            e.style.cursor = "default"
+        document.querySelectorAll(".list span").forEach(e => {
+            e.style.visibility = "visible"
         })
+        document.querySelector(".characters .loader").style.display = "none"
         return fetched;
     }
 }
 characterList.getNext();
 document.querySelector(".more-btn").addEventListener("click", () => {
     characterList.getNext();
+});
+document.querySelector(".less-btn").addEventListener("click", () => {
+    characterList.getPrevious();
 });

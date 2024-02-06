@@ -38,6 +38,7 @@ body {
 
 .loader {
     position: absolute;
+    z-index: 100;
     display: none;
     top: calc(53%);
     left: calc(50% - 26px);
@@ -58,6 +59,7 @@ body {
 }
 
 .characters {
+    position: relative;
     border-radius: 10px;
     background-color: #bbb;
     display: flex;
@@ -142,6 +144,7 @@ body {
     background-color: #ddd;
     border-radius: 10px;
     color: yellow;
+    min-height: 38rem;
     > h2 {
         border-radius: 25px 25px 0 0;
         display: grid;
