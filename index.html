@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Star Wars Catalog</title>
-    <link rel="stylesheet" href="index.css" />
-    <script src="index.js" defer type="module"></script>
-  </head>
-  <body>
-    <header class="hero">
-      <h1>STAR WARS CATALOG</h1>
-    </header>
-    <div class="split">
-      <section class="characters">
-        <h2>Characters</h2>
-        <div class="loader"></div>
-        <div class="list">
-        </div>
-        <div class="controls">
-          <div>
-            <button class="less-btn">Previous</button>
-            <button class="more-btn">Next</button>
-          </div>
-        </div>
-      </section>
-      <section class="details">
-        <div class="loader"></div>
-        <h2>Details</h2>
-        <section class="dual">
-          <section class="character">
-          </section>
-          <section class="planet">
-          </section>
-        </div>
-      </section>
-    </div>
-  </body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Star Wars Catalog</title>
+        <link rel="stylesheet" href="index.css" />
+        <script src="index.js" defer type="module"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    </head>
+    <body>
+        <header class="hero">
+            <h1>STAR WARS CATALOG</h1>
+        </header>
+        <section class="split">
+            <section class="characters">
+                <h2>Characters</h2>
+                <div class="loader"></div>
+                <div class="list"></div>
+                <div class="controls">
+                    <div>
+                        <span class="material-symbols-outlined btn-back btn">arrow_back_ios_new</span>
+                        <span class="more-btn material-symbols-outlined btn-next btn">arrow_forward_ios</span>
+                    </div>
+                </div>
+            </section>
+            <section class="details">
+                <div class="loader"></div>
+                <h2>Details</h2>
+                <section class="dual">
+                    <section class="character"></section>
+                    <section class="planet"></section>
+                </section>
+            </section>
+        </section>
+    </body>
 </html>

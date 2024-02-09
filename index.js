@@ -130,9 +130,9 @@ async function fetcher(type, number) {
     }
 }
 characterList.getNext();
-document.querySelector(".more-btn").addEventListener("click", () => {
+document.querySelector(".btn-next").addEventListener("click", () => {
     characterList.getNext();
 });
-document.querySelector(".less-btn").addEventListener("click", () => {
+document.querySelector(".btn-back").addEventListener("click", () => {
     characterList.getPrevious();
 });

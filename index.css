@@ -3,29 +3,30 @@ body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     padding: 0;
     font-size: 1em;
-    background-image: url(/assets/bg.jpg);
+    background-image: url(assets/bg.jpg);
+    box-shadow: inset 0 0 1000px rgb(0, 0, 0);
 }
 
 .hero {
     display: grid;
-    height: 15rem;
+    height: 256px;
     background-image: url(/assets/hero.jpg);
     background-size: cover;
-    background-position: center;
+    background-position-y: -80px;
     place-items: center;
     h1 {
-        font-size: 4em;
+        font-size: 40px;
         margin-bottom: 1.5em;
         color: white;
     }
 }
 
 .split {
-    position: relative;
     display: flex;
     flex-wrap: wrap;
     place-content: center;
-    top: -5em;
+    position: relative;
+    top: -8em;
     > section {
         margin: 32px;
         width: 600px;
@@ -44,7 +45,7 @@ body {
     left: calc(50% - 26px);
     width: 52px;
     aspect-ratio: 1;
-    border: 5px dashed black;
+    border: 5px dashed white;
     animation: 1s infinite linear;
     animation-name: rotate;
     border-radius: 50%;
@@ -61,12 +62,13 @@ body {
 .characters {
     position: relative;
     border-radius: 10px;
-    background-color: #bbb;
+    background-color: rgba(50, 44, 47, 0.8);
+    backdrop-filter: blur(7px);
     display: flex;
     flex-direction: column;
     h2 {
-        color: yellow;
-        background-color: #333;
+        color: #ffe900;
+        background: linear-gradient(#333, #222);
         min-height: 2em;
         font-size: 2rem;
         border-radius: 10px 10px 0 0;
@@ -82,21 +84,20 @@ body {
         span {
             font-size: 1.5em;
             padding: 9px 0 9px 18px;
-            background-color: #ddd;
+            background-color: rgb(255, 255, 255, 0.1);
             place-items: center start;
             display: grid;
-        }
-        span:nth-child(2n) {
-            background-color: #eee;
+            color: white;
         }
         span:hover {
-            background-color: #ccc;
+            background-color: rgb(255, 255, 255, 0.2);
             transition: 0.2s;
             cursor: pointer;
         }
         .selected:nth-child(n) {
-            background-color: #aaa;
+            background-color: rgb(255, 255, 255, 0.3);
             color: white;
+            cursor: default;
         }
     }
     .controls {
@@ -104,53 +105,54 @@ body {
         color: white;
         border-radius: 0 0 10px 10px;
         display: grid;
-        place-items: end;
-        align-self: end;
+        place-items: end center;
         height: 100%;
-        button {
+        .btn {
+            place-items: center;
             outline: 0px;
             font-size: 2rem;
-            background-color: white;
-            padding: 6px;
-            border-radius: 10px;
-            margin: 9px;
-            border: 1px solid black;
+            background-color: rgb(255, 255, 255, 0.3);
+            text-align: center;
+            padding: 0.5rem;
+            border-radius: 50%;
+            margin: 9px 0;
+            border: 2px solid white;
+            user-select: none;
         }
-        button:hover {
-            background-color: #eee;
+        .btn:hover {
             cursor: pointer;
+            background-color: rgb(255, 255, 255, 0.4);
         }
     }
 }
 
 .dual {
-    display: grid;
-    grid-auto-flow: row;
+    height: 38rem;
     color: black;
     section {
         place-items: center start;
         display: grid;
-        padding: 9px 0 9px 18px;
+        padding: 3px 0 9px 18px;
         gap: 0.2em;
         span {
             display: block;
             font-size: 1.1em;
         }
     }
+    padding-bottom: 1rem;
 }
 
 .details {
     position: relative;
-    background-color: #ddd;
     border-radius: 10px;
-    color: yellow;
-    min-height: 38rem;
+    background-color: rgba(50, 44, 47, 0.8);
+    backdrop-filter: blur(7px);
     > h2 {
         border-radius: 25px 25px 0 0;
         display: grid;
         place-content: center;
-        color: yellow;
-        background-color: #333;
+        color: #ffe900;
+        background: linear-gradient(#333, #222);
         height: 2em;
         margin: 0;
         font-size: 2rem;
@@ -159,12 +161,14 @@ body {
     h3 {
         margin: 0.4em 0;
         font-size: 1.3em;
+        color: white;
+        font-weight: normal;
+        border-bottom: 1px solid white;
     }
-}
-
-.character {
-    background-color: #eee;
-    min-height: 7rem;
+    span {
+        color: white;
+        line-height: 1.8rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
