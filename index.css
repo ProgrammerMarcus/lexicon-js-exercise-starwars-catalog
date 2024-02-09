@@ -15,6 +15,7 @@ body {
     background-position: center;
     color: white;
     place-items: center;
+    image-rendering: pixelated;
     h1 {
         align-self: center;
         margin: 0;
@@ -23,6 +24,7 @@ body {
             height: 256px;
         }
     }
+    border-bottom: 2px solid #111;
 }
 
 .split {
