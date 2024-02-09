@@ -12,6 +12,7 @@ body {
     display: grid;
     background-image: url(/assets/hero.jpg);
     background-size: cover;
+    background-position: center;
     color: white;
     place-items: center;
     h1 {
@@ -25,12 +26,13 @@ body {
 }
 
 .split {
+    margin-top: -20px;
     display: flex;
     flex-wrap: wrap;
     place-content: center;
     position: relative;
     > section {
-        margin: -20px 32px;
+        margin: 10px 32px;
         width: 600px;
         max-width: 100%;
         h2 {
